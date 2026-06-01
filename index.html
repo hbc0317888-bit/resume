@@ -1,583 +1,404 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>个人简历 - 何炳成 · Ignacio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              biz: {
-                50: "#f8fafc",
-                100: "#f1f5f9",
-                200: "#e2e8f0",
-                300: "#cbd5e1",
-                400: "#94a3b8",
-                500: "#64748b",
-                600: "#475569",
-                700: "#334155",
-                800: "#1e293b",
-                900: "#0f172a",
-                navy: "#0c1929",
-                accent: "#1e40af",
-                accentLight: "#3b82f6"
-              }
-            },
-            fontFamily: {
-              sans: ["-apple-system", "BlinkMacSystemFont", "system-ui", "Segoe UI", "PingFang SC", "Microsoft YaHei", "sans-serif"]
-            },
-            boxShadow: {
-              soft: "0 22px 45px rgba(0,0,0,0.18)"
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="何炳成 — 海外销售 | 2027届应届生 | 国际贸易与外贸实务" />
+  <title>个人简历 - 何炳成 · Ignacio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            biz: {
+              50: "#f8fafc",
+              100: "#f1f5f9",
+              200: "#e2e8f0",
+              300: "#cbd5e1",
+              400: "#94a3b8",
+              500: "#64748b",
+              600: "#475569",
+              700: "#334155",
+              800: "#1e293b",
+              900: "#0f172a",
+              navy: "#0c1929",
+              accent: "#1e40af",
+              accentLight: "#3b82f6"
             }
+          },
+          fontFamily: {
+            sans: ["-apple-system", "BlinkMacSystemFont", "system-ui", "Segoe UI", "PingFang SC", "Microsoft YaHei", "sans-serif"]
+          },
+          boxShadow: {
+            soft: "0 22px 45px rgba(0,0,0,0.18)"
           }
         }
-      };
-    </script>
-    <style>
-      html {
-        scroll-behavior: smooth;
       }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="font-sans text-slate-900 antialiased">
 
-      body {
-        background: radial-gradient(ellipse 120% 80% at 50% -20%, #f1f5f9 0%, #e2e8f0 35%, #cbd5e1 60%, #1e293b 100%);
-      }
+  <!-- 背景视差层 -->
+  <div class="fixed inset-0 -z-20 overflow-hidden">
+    <div class="parallax-layer absolute -top-40 -left-52 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-biz-accent/20 via-biz-400/30 to-biz-200/40 blur-3xl opacity-80" data-depth="0.15"></div>
+    <div class="parallax-layer absolute top-1/3 -right-40 h-[420px] w-[420px] rounded-full bg-gradient-to-tr from-biz-700/30 via-biz-500/25 to-biz-300/30 blur-3xl opacity-70" data-depth="0.3"></div>
+    <div class="parallax-layer absolute bottom-[-8rem] left-16 h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-biz-navy/60 via-biz-800/50 to-biz-700/50 blur-3xl opacity-70" data-depth="0.5"></div>
+    <div class="parallax-layer absolute inset-x-0 top-[40%] h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" data-depth="0.05"></div>
+  </div>
 
-      .parallax-layer {
-        will-change: transform;
-        transition: transform 0.1s linear;
-      }
-
-      .scroll-fade {
-        opacity: 0;
-        transform: translateY(32px);
-        transition:
-          opacity 0.9s ease-out,
-          transform 0.9s ease-out;
-      }
-
-      .scroll-fade.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .glass-card {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.88) 100%);
-        backdrop-filter: blur(18px);
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
-      }
-
-      .section-divider::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 999px;
-        background: linear-gradient(to right, rgba(30, 64, 175, 0), rgba(30, 64, 175, 0.35), rgba(30, 64, 175, 0));
-        opacity: 0.7;
-      }
-
-      #copy-toast {
-        position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%) translateY(100px);
-        padding: 0.5rem 1.25rem;
-        background: #0f172a;
-        color: #fff;
-        font-size: 13px;
-        border-radius: 9999px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-        opacity: 0;
-        transition: transform 0.25s ease, opacity 0.25s ease;
-        z-index: 100;
-        pointer-events: none;
-      }
-      #copy-toast.show {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-      }
-    </style>
-  </head>
-  <body class="font-sans text-slate-900 antialiased">
-    <!-- 背景视差层 -->
-    <div class="fixed inset-0 -z-20 overflow-hidden">
-      <div
-        class="parallax-layer absolute -top-40 -left-52 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-biz-accent/20 via-biz-400/30 to-biz-200/40 blur-3xl opacity-80"
-        data-depth="0.15"
-      ></div>
-      <div
-        class="parallax-layer absolute top-1/3 -right-40 h-[420px] w-[420px] rounded-full bg-gradient-to-tr from-biz-700/30 via-biz-500/25 to-biz-300/30 blur-3xl opacity-70"
-        data-depth="0.3"
-      ></div>
-      <div
-        class="parallax-layer absolute bottom-[-8rem] left-16 h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-biz-navy/60 via-biz-800/50 to-biz-700/50 blur-3xl opacity-70"
-        data-depth="0.5"
-      ></div>
-      <div
-        class="parallax-layer absolute inset-x-0 top-[40%] h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"
-        data-depth="0.05"
-      ></div>
-    </div>
-
-    <!-- 导航 -->
-    <header
-      class="fixed inset-x-0 top-0 z-30 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl shadow-sm"
-    >
-      <nav
-        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 text-sm text-slate-800 md:px-6 lg:px-8"
-      >
-        <div class="flex items-center gap-3">
-          <div
-            class="flex h-9 w-9 items-center justify-center rounded-xl bg-biz-navy text-xs font-semibold tracking-[0.2em] text-white shadow-md"
-          >
-            简历
-          </div>
-          <div class="flex flex-col">
-            <span class="text-[13px] font-semibold tracking-[0.16em] uppercase text-biz-600">
-              Personal Resume
-            </span>
-            <span class="text-[13px] text-slate-700">何炳成 · Ignacio · 外贸</span>
-          </div>
+  <!-- 导航 -->
+  <header class="fixed inset-x-0 top-0 z-30 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl shadow-sm">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 text-sm text-slate-800 md:px-6 lg:px-8">
+      <div class="flex items-center gap-3">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-biz-navy text-xs font-semibold tracking-[0.2em] text-white shadow-md">简历</div>
+        <div class="flex flex-col">
+          <span class="text-[13px] font-semibold tracking-[0.16em] uppercase text-biz-600">Personal Resume</span>
+          <span class="text-[13px] text-slate-700">何炳成 · Ignacio · 海外销售</span>
         </div>
-        <div class="hidden items-center gap-6 md:flex">
-          <a href="#about" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">基本信息</a>
-          <a href="#experience" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">实习经历</a>
-          <a href="#education" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">教育背景</a>
-          <a href="#awards" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">荣誉证书</a>
-          <a href="#profile" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">自我评价</a>
-        </div>
-        <a
-          href="#contact"
-          class="group hidden items-center gap-2 rounded-full bg-biz-navy px-4 py-1.5 text-[13px] font-medium text-white shadow-md transition hover:-translate-y-0.5 hover:bg-biz-800 hover:shadow-lg md:inline-flex"
-        >
+      </div>
+      <div class="hidden items-center gap-6 md:flex">
+        <a href="#about" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">基本信息</a>
+        <a href="#experience" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">实习经历</a>
+        <a href="#education" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">教育背景</a>
+        <a href="#awards" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">荣誉证书</a>
+        <a href="#profile" class="text-slate-600 transition-colors duration-200 hover:text-biz-accent">自我评价</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button type="button" class="nav-toggle md:hidden rounded-lg p-2 text-slate-600 hover:bg-slate-100" aria-label="打开菜单" aria-expanded="false">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <a href="#contact" class="group hidden items-center gap-2 rounded-full bg-biz-navy px-4 py-1.5 text-[13px] font-medium text-white shadow-md transition hover:-translate-y-0.5 hover:bg-biz-800 hover:shadow-lg md:inline-flex">
           <span>联系我</span>
-          <span
-            class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[11px] transition-transform group-hover:translate-x-0.5"
-            >→</span
-          >
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[11px] transition-transform group-hover:translate-x-0.5">→</span>
         </a>
-      </nav>
-    </header>
+      </div>
+    </nav>
+    <div class="mobile-nav hidden border-t border-slate-200 bg-white/95 px-4 py-3 md:hidden">
+      <div class="flex flex-col gap-2 text-[13px]">
+        <a href="#about" class="rounded-lg px-3 py-2 text-slate-700 hover:bg-biz-50">基本信息</a>
+        <a href="#experience" class="rounded-lg px-3 py-2 text-slate-700 hover:bg-biz-50">实习经历</a>
+        <a href="#education" class="rounded-lg px-3 py-2 text-slate-700 hover:bg-biz-50">教育背景</a>
+        <a href="#awards" class="rounded-lg px-3 py-2 text-slate-700 hover:bg-biz-50">荣誉证书</a>
+        <a href="#profile" class="rounded-lg px-3 py-2 text-slate-700 hover:bg-biz-50">自我评价</a>
+        <a href="#contact" class="rounded-lg bg-biz-navy px-3 py-2 text-center font-medium text-white">联系我</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- 主体 -->
-    <main class="relative z-10 pt-24 pb-16 md:pt-28 md:pb-24">
-      <section
-        id="about"
-        class="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 md:flex-row md:items-stretch md:px-6 lg:px-8"
-      >
-        <!-- 个人信息卡片 -->
-        <div
-          class="scroll-fade glass-card relative w-full max-w-xl rounded-3xl p-6 shadow-soft md:w-1/2 md:p-8"
-        >
-          <div class="absolute inset-x-8 top-0 -translate-y-1/2">
-            <div class="section-divider relative h-[2px] overflow-hidden rounded-full bg-white/10"></div>
-          </div>
+  <main class="relative z-10 pt-24 pb-16 md:pt-28 md:pb-24">
 
-          <div class="flex flex-col gap-6 pt-2">
-            <div class="flex items-center justify-between gap-4">
-              <div>
-                <h1 class="text-2xl font-semibold tracking-wide text-slate-900 md:text-3xl">何炳成 <span class="text-lg font-medium text-biz-600 md:text-xl">Ignacio</span></h1>
-                <p class="mt-1 text-[15px] font-medium text-slate-600">
-                  外贸 · 本科
-                </p>
-                <p class="mt-1 text-xs uppercase tracking-[0.18em] text-biz-600">
-                  MBTI ENTJ · 外向果断 · 目标感强
-                </p>
-              </div>
-              <a
-                href="assets/photo.png"
-                target="_blank"
-                rel="noopener"
-                title="点击查看原图"
-                class="relative block h-24 w-24 overflow-hidden rounded-2xl border border-slate-200 shadow-lg transition hover:shadow-xl hover:border-biz-400 md:h-28 md:w-28 cursor-pointer"
-              >
-                <img
-                  src="assets/photo.png"
-                  alt="个人证件照"
-                  class="h-full w-full object-cover"
-                />
-              </a>
-            </div>
-
-            <dl class="grid grid-cols-1 gap-4 text-[14px] text-slate-800 sm:grid-cols-2">
-              <div class="space-y-1">
-                <dt class="text-xs font-semibold tracking-[0.16em] text-biz-700 uppercase">联系方式</dt>
-                <dd class="font-medium text-slate-800">+86 13011998588</dd>
-                <dd class="text-[13px] text-slate-600 break-all">hbc0317888@gmail.com</dd>
-              </div>
-              <div class="space-y-1">
-                <dt class="text-xs font-semibold tracking-[0.16em] text-biz-700 uppercase">个人信息</dt>
-                <dd class="text-[13px] text-slate-800">民族：汉 · 政治面貌：群众</dd>
-                <dd class="text-[13px] text-slate-800">MBTI：ENTJ · 学历：本科</dd>
-              </div>
-            </dl>
-
-            <div class="mt-2 flex flex-wrap gap-2">
-              <span
-                class="rounded-full bg-biz-100 px-3 py-1 text-[11px] font-medium text-biz-800 shadow-sm"
-                >逻辑清晰</span
-              >
-              <span
-                class="rounded-full bg-biz-navy px-3 py-1 text-[11px] font-medium text-white shadow-sm"
-                >沟通力强</span
-              >
-              <span
-                class="rounded-full bg-biz-200 px-3 py-1 text-[11px] font-medium text-slate-800 shadow-sm"
-                >数据敏感</span
-              >
-              <span
-                class="rounded-full bg-biz-accent px-3 py-1 text-[11px] font-medium text-white shadow-sm"
-                >执行力 & 责任心</span
-              >
-            </div>
-          </div>
+    <!-- 基本信息 -->
+    <section id="about" class="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 md:flex-row md:items-stretch md:px-6 lg:px-8">
+      <div class="scroll-fade glass-card profile-card relative w-full max-w-xl rounded-3xl p-6 shadow-soft md:w-1/2 md:p-8">
+        <div class="profile-card-glow" aria-hidden="true"></div>
+        <div class="absolute inset-x-8 top-0 -translate-y-1/2">
+          <div class="section-divider relative h-[2px] overflow-hidden rounded-full bg-white/10"></div>
         </div>
-
-        <!-- 英文标语 & 快捷导航 -->
-        <div class="scroll-fade w-full md:w-1/2">
-          <div class="glass-card relative h-full rounded-3xl p-6 shadow-soft md:px-8 md:py-10">
-            <div class="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-biz-600">
-              Walk the Talk · Business Mindset
-            </div>
-            <h2 class="text-2xl font-semibold leading-relaxed text-slate-900 md:text-[26px]">
-              言行一致是成功的开始。<br />
-              以专业的外贸实操经验，<br />为团队创造价值。
-            </h2>
-            <p class="mt-4 text-[14px] leading-relaxed text-slate-700">
-              具备外贸业务、教育沟通、财务实习与人事行政等多段经历，善于客户开发与数据管理，
-              目标感强、执行力突出，愿深耕外贸业务，与团队高效配合。
-            </p>
-
-            <div class="mt-6 grid gap-3 text-[13px] text-slate-900 sm:grid-cols-2">
-              <a
-                href="#experience"
-                class="group flex items-center justify-between rounded-2xl border border-slate-200 bg-biz-50 px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-biz-200"
-              >
-                <div>
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-biz-700">
-                    Internship Experience
-                  </p>
-                  <p class="mt-0.5 font-medium text-slate-800">外贸 · 教育 · 实习 · 行政</p>
-                </div>
-                <span
-                  class="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-biz-navy text-[13px] text-white transition-transform group-hover:translate-x-0.5"
-                  >↓</span
-                >
-              </a>
-              <a
-                href="#profile"
-                class="group flex items-center justify-between rounded-2xl bg-biz-navy px-4 py-3 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                <div>
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-300">
-                    Personal Profile
-                  </p>
-                  <p class="mt-0.5 font-medium">ENTJ · 外向果断 · 目标感强</p>
-                </div>
-                <span
-                  class="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-[13px] transition-transform group-hover:-translate-x-0.5"
-                  >↘</span
-                >
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 实习经历 -->
-      <section id="experience" class="mx-auto mt-16 max-w-6xl px-4 md:mt-20 md:px-6 lg:px-8">
-        <div class="scroll-fade flex items-center justify-between gap-4">
-          <div>
-            <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-biz-700">
-              Internship Experience
-            </h3>
-            <p class="mt-2 text-lg font-semibold text-slate-900 md:text-xl">实习经历</p>
-          </div>
-        </div>
-
-        <div class="mt-8 grid gap-6 lg:grid-cols-2">
-          <!-- 1. 北京双立丰 外贸业务员 -->
-          <article class="scroll-fade glass-card relative overflow-hidden rounded-3xl p-6 shadow-soft md:p-7">
-            <div class="absolute inset-y-0 right-0 w-40 bg-gradient-to-tl from-biz-800/20 via-biz-600/10 to-transparent"></div>
-            <div class="relative flex items-start justify-between gap-4">
-              <div>
-                <h4 class="text-[15px] font-semibold text-slate-900">
-                  北京双立丰科技有限公司｜外贸业务员
-                </h4>
-                <p class="mt-1 text-[13px] text-slate-700">2025.10 – 2026.05</p>
-              </div>
-              <span class="rounded-full bg-biz-100 px-3 py-1 text-[11px] font-medium text-biz-800">外贸</span>
-            </div>
-            <ul class="mt-4 space-y-2.5 text-[13px] leading-relaxed text-slate-800">
-              <li>负责海外客户开发、询盘回复与商务沟通，通过邮件及线上渠道跟进客户需求，提升意向转化。</li>
-              <li>参与产品报价、订单洽谈与外贸全流程跟进，协助完成合同整理、报关资料准备等业务。</li>
-              <li>维护客户关系，做好客户信息分类与数据管理，提升客户跟进效率。</li>
-              <li>收集海外市场信息，协助优化业务话术与客户开发策略，增强销售执行力。</li>
-            </ul>
-          </article>
-
-          <!-- 2. 国贤教育 数学教师 -->
-          <article class="scroll-fade glass-card relative overflow-hidden rounded-3xl p-6 shadow-soft md:p-7">
-            <div class="absolute inset-y-0 right-0 w-40 bg-gradient-to-tl from-biz-700/20 via-biz-500/10 to-transparent"></div>
-            <div class="relative flex items-start justify-between gap-4">
-              <div>
-                <h4 class="text-[15px] font-semibold text-slate-900">国贤教育｜数学教师</h4>
-                <p class="mt-1 text-[13px] text-slate-700">2024.09 – 2025.06</p>
-              </div>
-              <span class="rounded-full bg-biz-100 px-3 py-1 text-[11px] font-medium text-biz-800">教育</span>
-            </div>
-            <ul class="mt-4 space-y-2.5 text-[13px] leading-relaxed text-slate-800">
-              <li>负责学员课程讲解、需求沟通与学习方案制定，具备强表达、强沟通与需求挖掘能力。</li>
-              <li>与家长持续对接，及时反馈学习情况并进行课程推荐，锻炼客户维护与转化能力。</li>
-              <li>独立完成课堂管理、学情分析与问题解决，提升抗压能力与高效执行力。</li>
-              <li>通过清晰表达与耐心服务提升用户满意度，具备优秀的商务沟通与服务意识。</li>
-            </ul>
-          </article>
-
-          <!-- 3. 河北航天科技 财务实习生 -->
-          <article class="scroll-fade glass-card relative overflow-hidden rounded-3xl p-6 shadow-soft md:p-7">
-            <div class="absolute inset-y-0 right-0 w-40 bg-gradient-to-tl from-biz-600/20 via-biz-400/10 to-transparent"></div>
-            <div class="relative flex items-start justify-between gap-4">
-              <div>
-                <h4 class="text-[15px] font-semibold text-slate-900">
-                  河北航天科技信息有限公司｜财务实习生
-                </h4>
-                <p class="mt-1 text-[13px] text-slate-700">2024.07 – 2024.09</p>
-              </div>
-              <span class="rounded-full bg-biz-100 px-3 py-1 text-[11px] font-medium text-biz-800">财务</span>
-            </div>
-            <ul class="mt-4 space-y-2.5 text-[13px] leading-relaxed text-slate-800">
-              <li>负责财务单据审核、数据录入与台账整理，具备严谨的数据分析与细节把控能力。</li>
-              <li>协助完成费用核算、报表统计与合同资料归档，做事规范、逻辑清晰、责任心强。</li>
-              <li>熟练处理各类单据与流程对接，适合外贸业务中订单、单据、数据类工作。</li>
-            </ul>
-          </article>
-
-          <!-- 4. 沧州市共青团委员会 人事行政实习生 -->
-          <article class="scroll-fade glass-card relative overflow-hidden rounded-3xl p-6 shadow-soft md:p-7">
-            <div class="absolute inset-y-0 right-0 w-40 bg-gradient-to-tl from-biz-800/20 via-biz-600/10 to-transparent"></div>
-            <div class="relative flex items-start justify-between gap-4">
-              <div>
-                <h4 class="text-[15px] font-semibold text-slate-900">
-                  沧州市共青团委员会｜人事行政实习生
-                </h4>
-                <p class="mt-1 text-[13px] text-slate-700">2024.01 – 2024.02</p>
-              </div>
-              <span class="rounded-full bg-biz-100 px-3 py-1 text-[11px] font-medium text-biz-800">人事行政</span>
-            </div>
-            <ul class="mt-4 space-y-2.5 text-[13px] leading-relaxed text-slate-800">
-              <li>协助人员信息管理、档案整理与内部沟通协调，提升组织、统筹与沟通能力。</li>
-              <li>负责活动安排、文件处理与跨部门对接，具备强执行力与多任务处理能力。</li>
-              <li>工作严谨高效、服务意识强，适合外贸业务员日常客户对接与事务性工作。</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <!-- 教育背景与荣誉 -->
-      <section
-        id="education"
-        class="mx-auto mt-16 flex max-w-6xl flex-col gap-10 px-4 md:mt-20 md:flex-row md:px-6 lg:px-8"
-      >
-        <div class="scroll-fade w-full md:w-3/5">
-          <div class="glass-card rounded-3xl p-6 shadow-soft md:p-7">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-biz-700">
-              Education
-            </h3>
-            <p class="mt-2 text-lg font-semibold text-slate-900 md:text-xl">教育经历</p>
-            <div class="mt-5 space-y-3 text-[13px] leading-relaxed text-slate-800">
-              <p>河北水利电力学院 · 财务管理专业 · 本科</p>
-              <p><strong>学生会部长</strong>，积极参与校园活动组织与日常工作，提升沟通协调与团队协作能力。</p>
-              <p><strong>校级组织主持团干事</strong>，协助活动开展、人员对接与事务执行。</p>
-              <p><strong>班级文艺委员</strong>，负责班级活动组织、同学沟通协调，善于表达、服务意识强、做事认真负责。</p>
-            </div>
-          </div>
-        </div>
-
-        <div id="awards" class="scroll-fade w-full md:w-2/5">
-          <div class="glass-card rounded-3xl p-6 shadow-soft md:p-7">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-biz-700">
-              Awards & Certificates
-            </h3>
-            <p class="mt-2 text-lg font-semibold text-slate-900 md:text-xl">竞赛证书</p>
-            <ul class="mt-5 space-y-2.5 text-[13px] leading-relaxed text-slate-800">
-              <li>雅思 6.5</li>
-              <li>第三届「一带一路」全国大学生贸易大赛 国赛一等奖</li>
-              <li>BETT 全国大学生英语阅读大赛 一等奖</li>
-              <li>外研社全国大学生英语大赛 一等奖</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 自我评价 -->
-      <section id="profile" class="mx-auto mt-16 max-w-6xl px-4 md:mt-20 md:px-6 lg:px-8">
-        <div class="scroll-fade glass-card rounded-3xl p-6 shadow-soft md:p-8">
-          <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-biz-700">
-                Personal Profile
-              </h3>
-              <p class="mt-2 text-lg font-semibold text-slate-900 md:text-xl">自我评价</p>
-            </div>
-            <div class="flex flex-wrap gap-2 text-[11px]">
-              <span class="rounded-full bg-biz-200 px-3 py-1 font-medium text-slate-800">ENTJ 性格</span>
-              <span class="rounded-full bg-biz-navy px-3 py-1 font-medium text-white">外向果断</span>
-              <span class="rounded-full bg-biz-100 px-3 py-1 font-medium text-biz-800">目标感强</span>
-            </div>
-          </div>
-
-          <div class="mt-5 grid gap-5 md:grid-cols-[2fr,1.3fr]">
-            <div class="space-y-3 text-[13px] leading-relaxed text-slate-800">
-              <p>
-                ENTJ 型性格，外向果断、目标感强，对国际贸易行业充满热情，享受跨文化商务沟通。具备外贸实操经验，河北人抗压耐挫、执行力突出，善于与团队协作、和同事高效配合，愿以积极态度深耕外贸业务，为团队创造价值。
+        <div class="profile-inner">
+          <div class="profile-header">
+            <div class="profile-identity">
+              <p class="profile-eyebrow">Personal Resume · 2027</p>
+              <h1 class="profile-name">
+                <span class="profile-name-cn">何炳成</span>
+                <span class="profile-name-en">Ignacio</span>
+              </h1>
+              <p class="profile-role">海外销售 · 本科 · 2027届应届生</p>
+              <p class="profile-mbti">
+                <span class="profile-mbti-badge">ENTJ</span>
+                外向果断 · 目标感强
               </p>
             </div>
+            <a href="assets/photo.png" target="_blank" rel="noopener" title="点击查看原图" class="profile-photo">
+              <img src="assets/photo.png" alt="个人证件照" />
+            </a>
+          </div>
 
-            <div
-              class="flex flex-col justify-between gap-4 rounded-2xl bg-biz-navy px-5 py-5 text-white shadow-inner"
-            >
-              <div>
-                <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
-                  What I Bring
-                </p>
-                <ul class="mt-2 space-y-1.5 text-[13px] leading-relaxed">
-                  <li>· 外贸实操与客户开发能力</li>
-                  <li>· 数据管理与流程对接</li>
-                  <li>· 英文沟通与跨文化商务能力</li>
-                  <li>· 执行力突出、团队协作高效</li>
+          <div class="profile-meta">
+            <div class="profile-meta-accent" aria-hidden="true"></div>
+            <div class="profile-meta-body">
+              <div class="profile-contact-list">
+                <a href="tel:+8613011998588" class="profile-contact-row">
+                  <span class="profile-contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  </span>
+                  <span class="profile-contact-text">
+                    <span class="profile-contact-label">Tel · WeChat</span>
+                    <span class="profile-contact-value">+86 130 1199 8588</span>
+                  </span>
+                </a>
+                <a href="mailto:hbc0317888@gmail.com" class="profile-contact-row">
+                  <span class="profile-contact-icon profile-contact-icon--mail" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                  </span>
+                  <span class="profile-contact-text">
+                    <span class="profile-contact-label">Email</span>
+                    <span class="profile-contact-value">hbc0317888@gmail.com</span>
+                  </span>
+                </a>
+              </div>
+              <div class="profile-creds">
+                <span class="profile-creds-label">Credentials</span>
+                <ul class="profile-creds-list">
+                  <li class="profile-cred-chip">
+                    <span class="profile-cred-lang">EN</span>
+                    <span class="profile-cred-desc">雅思 6.5</span>
+                  </li>
+                  <li class="profile-cred-chip">
+                    <span class="profile-cred-lang">ES</span>
+                    <span class="profile-cred-desc">西语日常</span>
+                  </li>
+                  <li class="profile-cred-chip">
+                    <span class="profile-cred-lang">CN</span>
+                    <span class="profile-cred-desc">C1 · 普通话一级</span>
+                  </li>
                 </ul>
               </div>
-              <a
-                href="#contact"
-                class="group inline-flex items-center justify-between rounded-xl bg-white px-4 py-2.5 text-[13px] font-medium text-biz-navy shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                <span>期待与您进一步沟通。</span>
-                <span
-                  class="ml-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-biz-navy text-[13px] text-white transition-transform group-hover:translate-x-0.5"
-                  >→</span
-                >
-              </a>
+            </div>
+            <span class="profile-year-mark" aria-hidden="true">27</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-fade w-full md:w-1/2">
+        <div class="glass-card slogan-panel relative h-full overflow-hidden rounded-3xl p-6 shadow-soft md:px-8 md:py-10">
+          <span class="slogan-watermark" aria-hidden="true">"</span>
+          <p class="slogan-eyebrow">Walk the Talk · Business Mindset</p>
+          <h2 class="slogan-headline">
+            <span class="slogan-headline-line">言行一致是成功的开始。</span>
+            <span class="slogan-headline-line slogan-headline-accent">以专业的实操经验，</span>
+            <span class="slogan-headline-line">为团队创造价值。</span>
+          </h2>
+          <div class="slogan-divider" aria-hidden="true"></div>
+          <ul class="slogan-body">
+            <li>具备国际展会参展、海外客户开发与供应链对接经验；</li>
+            <li>善于跨文化沟通与数据管理；</li>
+            <li>目标感强、执行力突出，愿深耕海外销售业务，与团队高效配合。</li>
+          </ul>
+          <div class="slogan-footer">
+            <p class="slogan-tags">ENTJ · 外向果断 · 目标感强</p>
+            <span class="slogan-footer-sep" aria-hidden="true"></span>
+            <a href="#experience" class="slogan-link">实习经历</a>
+            <span class="slogan-link-sep" aria-hidden="true">/</span>
+            <a href="#profile" class="slogan-link">自我评价</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 实习经历 -->
+    <section id="experience" class="experience-section mx-auto mt-16 max-w-6xl px-4 md:mt-20 md:px-6 lg:px-8">
+      <div class="experience-panel scroll-fade">
+      <header class="experience-header">
+        <div>
+          <p class="experience-eyebrow">Internship Experience</p>
+          <h2 class="experience-title">实习经历</h2>
+        </div>
+        <span class="experience-count" aria-hidden="true">03</span>
+      </header>
+
+      <div class="timeline">
+        <div class="timeline-axis" aria-hidden="true"></div>
+
+        <article class="timeline-node scroll-fade">
+          <div class="timeline-point">
+            <span class="timeline-dot timeline-dot--current"></span>
+            <div class="timeline-date">
+              <time datetime="2025-11">2025.11</time>
+              <span class="timeline-date-sep">—</span>
+              <time datetime="2026-05">2026.05</time>
             </div>
           </div>
-        </div>
-      </section>
+          <div class="timeline-content">
+            <div class="timeline-content-head">
+              <div>
+                <span class="timeline-tag timeline-tag--primary">外贸 · 展会</span>
+                <h3 class="timeline-company">北京双利丰科技有限公司</h3>
+                <p class="timeline-role">外贸业务员</p>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li>全程跟进线下国际展会全流程：参展资料翻译整理、产品英文画册排版、客户邀约；现场接待海内外采购商，产品演示、需求深挖、现场议价留资。个人现场成交样品订单 400 美金，累计对接海外客户 50+。</li>
+              <li>协助处理海外客户日常询盘与产品报价对接；为意大利客户专项对接 MC 基板产品，实地走访多家合作工厂，完成参数核验、产能及价格对比，择优匹配供应商。</li>
+              <li>运用数字化工具整理客户资源档案，分类标注意向客户；通过邮件、社交软件与电话完成客情维护，持续跟进客户需求，推进客户转化。</li>
+            </ul>
+          </div>
+        </article>
 
-      <!-- 联系方式 -->
-      <section id="contact" class="mx-auto mt-16 max-w-6xl px-4 md:mt-20 md:px-6 lg:px-8">
-        <div
-          class="scroll-fade flex flex-col items-center justify-between gap-4 rounded-3xl bg-biz-navy px-5 py-6 text-white shadow-soft md:flex-row md:px-8 md:py-7"
-        >
+        <article class="timeline-node scroll-fade">
+          <div class="timeline-point">
+            <span class="timeline-dot"></span>
+            <div class="timeline-date">
+              <time datetime="2024-11">2024.11</time>
+              <span class="timeline-date-sep">—</span>
+              <time datetime="2025-07">2025.07</time>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-content-head">
+              <div>
+                <span class="timeline-tag">教育</span>
+                <h3 class="timeline-company">沧州市国贤教育</h3>
+                <p class="timeline-role">英语课程销售 / 授课老师</p>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li>独立开发并维护学员及家长客户，通过电话沟通、线下咨询等方式转化意向客户，累计招生 20+ 人。</li>
+              <li>定期与家长沟通学员学习情况，建立良好的客户关系，实现续课率 80%。</li>
+              <li>具备强表达、强沟通与需求挖掘能力，锻炼客户维护与商务转化意识。</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-node scroll-fade">
+          <div class="timeline-point">
+            <span class="timeline-dot"></span>
+            <div class="timeline-date">
+              <time datetime="2024-06">2024.06</time>
+              <span class="timeline-date-sep">—</span>
+              <time datetime="2024-09">2024.09</time>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-content-head">
+              <div>
+                <span class="timeline-tag">财务</span>
+                <h3 class="timeline-company">河北航天信息科技有限公司</h3>
+                <p class="timeline-role">财务实习生</p>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li>协助负责老客户售后沟通、往来账款核对、成本统计，熟练看懂产品成本构成。</li>
+              <li>为核算外贸报价成本、毛利、税费及报价测算打下基础，做事规范、逻辑清晰、责任心强。</li>
+              <li>熟练处理各类单据与流程对接，适合外贸业务中订单、单据、数据类工作。</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <!-- 教育 & 荣誉 -->
+    <section id="education" class="mx-auto mt-16 flex max-w-6xl flex-col gap-10 px-4 md:mt-20 md:flex-row md:px-6 lg:px-8">
+      <div class="scroll-fade w-full md:w-3/5">
+        <div class="glass-card rounded-3xl p-6 shadow-soft md:p-7">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-biz-700">Education</h3>
+          <p class="mt-2 text-lg font-semibold text-slate-900 md:text-xl">教育经历</p>
+          <div class="mt-5 space-y-3 text-[13px] leading-relaxed text-slate-800">
+            <p><strong>河北水利电力学院</strong> · 财务管理专业 · 本科（2023.09 – 2027.06）</p>
+            <p><strong>在校职务：</strong>班长 · 学生会文艺部部长 · 校级主持团干事</p>
+            <p><strong>核心课程：</strong>外汇与金融市场、市场营销、人工智能概论、经济法、财务管理</p>
+            <p><strong>主要成就：</strong>组织策划校级文艺活动多场，带领班级获「校级优秀班集体」称号；主持校级各类活动 10+ 场，具备优秀的表达能力与临场应变能力。</p>
+          </div>
+        </div>
+      </div>
+      <div id="awards" class="scroll-fade w-full md:w-2/5">
+        <div class="glass-card rounded-3xl p-6 shadow-soft md:p-7">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-biz-700">Awards & Certificates</h3>
+          <p class="mt-2 text-lg font-semibold text-slate-900 md:text-xl">竞赛证书</p>
+          <ul class="mt-5 space-y-2.5 text-[13px] leading-relaxed text-slate-800">
+            <li>雅思 6.5 · 西班牙语日常交流 · C1驾照 · 普通话一级</li>
+            <li>「一带一路」全国大学生国际贸易大赛 国赛一等奖</li>
+            <li>全国大学生英语阅读大赛 一等奖</li>
+            <li>外研社「国才杯」全国大学生英语综合能力大赛 二等奖</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 自我评价 -->
+    <section id="profile" class="profile-eval-section mx-auto mt-16 max-w-6xl px-4 md:mt-20 md:px-6 lg:px-8">
+      <div class="profile-eval-panel scroll-fade">
+        <header class="profile-eval-header">
           <div>
-            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">
-              Contact
-            </p>
-            <p class="mt-1 text-lg font-semibold md:text-xl">
-              期待与您交流，为团队创造价值。
-            </p>
+            <p class="profile-eval-eyebrow">Personal Profile</p>
+            <h2 class="profile-eval-title">自我评价</h2>
           </div>
-          <div class="flex flex-col items-start gap-2 text-[13px] md:items-end">
-            <button
-              type="button"
-              data-copy="+86 13011998588"
-              class="copy-contact flex cursor-pointer items-center gap-2 rounded-full bg-white px-4 py-2 text-[13px] font-medium text-biz-navy shadow-md transition hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
-              title="点击复制"
-            >
-              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-biz-navy text-white">☎</span>
-              <span>+86 13011998588</span>
-            </button>
-            <button
-              type="button"
-              data-copy="hbc0317888@gmail.com"
-              class="copy-contact flex cursor-pointer items-center gap-2 rounded-full border border-white/50 bg-transparent px-4 py-2 text-[13px] font-medium text-white transition hover:bg-white/10 active:scale-[0.98]"
-              title="点击复制"
-            >
-              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-[13px] text-biz-navy">✉</span>
-              <span>hbc0317888@gmail.com</span>
-            </button>
+          <div class="profile-eval-tags">
+            <span class="profile-eval-tag">ENTJ</span>
+            <span class="profile-eval-tag profile-eval-tag--dark">外向果断</span>
+            <span class="profile-eval-tag">目标感强</span>
           </div>
+        </header>
+
+        <div class="profile-eval-grid">
+          <div class="profile-eval-main">
+            <article class="profile-eval-block">
+              <div class="profile-eval-block-head">
+                <span class="profile-eval-num">01</span>
+                <h3>高效办公能力</h3>
+              </div>
+              <p>熟练使用各类 AI 工具，用于客户开发、资料翻译、市场调研、单据整理与客户数据管理，大幅提升业务效率。</p>
+            </article>
+            <article class="profile-eval-block profile-eval-block--accent">
+              <div class="profile-eval-block-head">
+                <span class="profile-eval-num">02</span>
+                <h3>综合软实力</h3>
+              </div>
+              <p>ENTJ 型性格，外向果断、目标感强，对国际贸易与海外销售充满热情。拥有学生干部、活动主持与外贸实习经历，表达谈判与统筹协调能力优异；敢于电话拓客与陌拜，擅长新客挖掘与客情维护，愿以积极态度深耕海外销售，为团队创造价值。</p>
+            </article>
+          </div>
+
+          <aside class="profile-eval-aside">
+            <p class="profile-bring-label">What I Bring</p>
+            <ul class="profile-bring-list">
+              <li>
+                <span class="profile-bring-icon" aria-hidden="true">◆</span>
+                <span>国际展会与海外客户开发</span>
+              </li>
+              <li>
+                <span class="profile-bring-icon" aria-hidden="true">◆</span>
+                <span>供应链对接与报价测算</span>
+              </li>
+              <li>
+                <span class="profile-bring-icon" aria-hidden="true">◆</span>
+                <span>英文 / 西语跨文化沟通</span>
+              </li>
+              <li>
+                <span class="profile-bring-icon" aria-hidden="true">◆</span>
+                <span>执行力突出、团队协作高效</span>
+              </li>
+            </ul>
+            <a href="#contact" class="profile-eval-cta">
+              <span>期待与您进一步沟通</span>
+              <span class="profile-eval-cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </aside>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <div id="copy-toast" aria-live="polite">已复制</div>
-    <footer class="relative z-10 mt-10 border-t border-slate-200 bg-biz-900 py-5 text-center text-[11px] text-slate-400">
-      <p>© 2026 何炳成 · Ignacio · Personal Resume</p>
-    </footer>
+    <!-- 联系方式 -->
+    <section id="contact" class="mx-auto mt-16 max-w-6xl px-4 md:mt-20 md:px-6 lg:px-8">
+      <div class="scroll-fade flex flex-col items-center justify-between gap-4 rounded-3xl bg-biz-navy px-5 py-6 text-white shadow-soft md:flex-row md:px-8 md:py-7">
+        <div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">Contact</p>
+          <p class="mt-1 text-lg font-semibold md:text-xl">期待与您交流，为团队创造价值。</p>
+        </div>
+        <div class="flex flex-col items-start gap-2 text-[13px] md:items-end">
+          <button type="button" data-copy="+86 13011998588" class="copy-contact flex cursor-pointer items-center gap-2 rounded-full bg-white px-4 py-2 text-[13px] font-medium text-biz-navy shadow-md transition hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]" title="点击复制">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-biz-navy text-white">☎</span>
+            <span>+86 13011998588</span>
+          </button>
+          <button type="button" data-copy="hbc0317888@gmail.com" class="copy-contact flex cursor-pointer items-center gap-2 rounded-full border border-white/50 bg-transparent px-4 py-2 text-[13px] font-medium text-white transition hover:bg-white/10 active:scale-[0.98]" title="点击复制">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-[13px] text-biz-navy">✉</span>
+            <span>hbc0317888@gmail.com</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- 交互脚本 -->
-    <script>
-      // 视差滚动
-      const parallaxLayers = document.querySelectorAll(".parallax-layer");
-      window.addEventListener("scroll", () => {
-        const scrollY = window.scrollY || window.pageYOffset;
-        parallaxLayers.forEach((layer) => {
-          const depth = parseFloat(layer.dataset.depth || 0.1);
-          const movement = scrollY * depth * -0.15;
-          layer.style.transform = `translate3d(0, ${movement}px, 0)`;
-        });
-      });
+  <div id="copy-toast" aria-live="polite">已复制</div>
+  <footer class="relative z-10 mt-10 border-t border-slate-200 bg-biz-900 py-5 text-center text-[11px] text-slate-400">
+    <p>© 2026 何炳成 · Ignacio · Personal Resume</p>
+  </footer>
 
-      // 滚动渐显动画
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.18,
-          rootMargin: "0px 0px -40px 0px"
-        }
-      );
-
-      document.querySelectorAll(".scroll-fade").forEach((el) => observer.observe(el));
-
-      // 导航平滑滚动（增强版）
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          const targetId = this.getAttribute("href");
-          if (!targetId || targetId === "#") return;
-          const target = document.querySelector(targetId);
-          if (!target) return;
-          e.preventDefault();
-          const headerOffset = 76;
-          const rect = target.getBoundingClientRect();
-          const offsetTop = rect.top + window.pageYOffset - headerOffset;
-          window.scrollTo({
-            top: offsetTop,
-            behavior: "smooth"
-          });
-        });
-      });
-
-      // 联系方式：点击复制
-      const toast = document.getElementById("copy-toast");
-      function showCopyToast() {
-        toast.classList.add("show");
-        clearTimeout(window._copyToastTimer);
-        window._copyToastTimer = setTimeout(() => toast.classList.remove("show"), 1500);
-      }
-      document.querySelectorAll(".copy-contact").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const text = btn.getAttribute("data-copy");
-          if (!text) return;
-          try {
-            await navigator.clipboard.writeText(text);
-            showCopyToast();
-          } catch (err) {
-            toast.textContent = "复制失败，请手动复制";
-            showCopyToast();
-          }
-        });
-      });
-    </script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
